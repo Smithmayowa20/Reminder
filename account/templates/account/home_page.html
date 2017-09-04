@@ -1,0 +1,591 @@
+{% extends 'account/base.html' %}
+{% block content %}
+<ul class="nav nav-tabs">
+<div class="col-md-1 col-xs-1"></div>
+{% if year == standard_year and month == 1 %}
+    <li class="active"><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 2 %}
+    <li class="active"><a data-toggle="tab" href="#menu1"><h3>Febuary</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu1"><h3>Febuary</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 3 %}
+    <li class="active"><a data-toggle="tab" href="#menu2"><h3>March</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu2"><h3>March</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 4 %}
+    <li class="active"><a data-toggle="tab" href="#menu3"><h3>April</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu3"><h3>April</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 5 %}
+    <li class="active"><a data-toggle="tab" href="#menu4"><h3>May</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu4"><h3>May</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 6 %}
+    <li class="active"><a data-toggle="tab" href="#menu5"><h3>June</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu5"><h3>June</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 7 %}
+    <li class="active"><a data-toggle="tab" href="#menu6"><h3>July</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu6"><h3>July</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 8 %}
+    <li class="active"><a data-toggle="tab" href="#menu7"><h3>August</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu7"><h3>August</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 9 %}
+    <li class="active"><a data-toggle="tab" href="#menu8"><h3>September</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu8"><h3>September</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 10 %}
+    <li class="active"><a data-toggle="tab" href="#menu9"><h3>October</h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu9"><h3>October</h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 11 %}
+    <li class="active"><a data-toggle="tab" href="#menu10"><h3>November </h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu10"><h3>November </h3></a></li>
+{% endif %}
+
+{% if year == standard_year and month == 12 %}
+    <li class="active"><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
+{% else %}
+	<li><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
+{% endif %}
+
+  </ul>
+
+  <div class="tab-content">
+    
+ 
+
+{% if year == standard_year and month == 1 %}
+<div id="home" class="tab-pane fade in active">
+{% else %}
+<div id="home" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> JANUARY </h1>
+</div>
+  {% for i in month_1 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_1 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_1}}</p>
+</div>
+</div>
+
+{% if year == standard_year and month == 2 %}
+<div id="menu1" class="tab-pane fade in active">
+{% else %}
+<div id="menu1" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> FEBUARY </h1>
+</div>
+  {% for i in month_2 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_2 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_2}}</p>
+</div>
+</div>
+
+{% if year == standard_year and month == 3 %}
+<div id="menu2" class="tab-pane fade in active">
+{% else %}
+<div id="menu2" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> MARCH </h1>
+</div>
+  {% for i in month_3 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_3 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_3}}</p>
+</div>
+</div>
+
+{% if year == standard_year and month == 4 %}
+<div id="menu3" class="tab-pane fade in active">
+{% else %}
+<div id="menu3" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> APRIL </h1>
+</div>
+  {% for i in month_4 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_4 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_4}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 5 %}
+<div id="menu4" class="tab-pane fade in active">
+{% else %}
+<div id="menu4" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> MAY </h1>
+</div>
+  {% for i in month_5 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_5 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_5}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 6 %}
+<div id="menu5" class="tab-pane fade in active">
+{% else %}
+<div id="menu5" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> JUNE </h1>
+</div>
+  {% for i in month_6 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_6 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_6}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 7 %}
+<div id="menu6" class="tab-pane fade in active">
+{% else %}
+<div id="menu6" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> JULY </h1>
+</div>
+  {% for i in month_7 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_7 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_7}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 8 %}
+<div id="menu7" class="tab-pane fade in active">
+{% else %}
+<div id="menu7" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> AUGUST </h1>
+</div>
+  {% for i in month_8 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_8 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_8}}</p>
+</div>
+</div>
+
+{% if year == standard_year and month == 9 %}
+<div id="menu8" class="tab-pane fade in active">
+{% else %}
+<div id="menu8" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> SEPTEMBER </h1>
+</div>
+  {% for i in month_9 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_9 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ 
+ <div class="col-md-12 col-xs-12 text-center">
+ <br>
+ <br>
+ <br>
+ {% for i in event_list_9 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ </div>
+ <div class="text-right">{{i.updated_date}}</div>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 10 %}
+<div id="menu9" class="tab-pane fade in active">
+{% else %}
+<div id="menu9" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> SEPTEMBER </h1>
+</div>
+  {% for i in month_10 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_10 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_10}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 11 %}
+<div id="menu10" class="tab-pane fade in active">
+{% else %}
+<div id="menu10" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> SEPTEMBER </h1>
+</div>
+  {% for i in month_11 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_11 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_11}}</p>
+</div>
+</div>
+
+
+
+{% if year == standard_year and month == 12 %}
+<div id="menu11" class="tab-pane fade in active">
+{% else %}
+<div id="menu11" class="tab-pane fade ">
+{% endif %}
+<div class="container">
+<div class="text-center">
+<h1> {{year}} </h1><hr>
+<h1> SEPTEMBER </h1>
+</div>
+  {% for i in month_12 %}
+ <div class="col-md-3 col-xs-3">
+</div>
+  {% for j in i %}
+  {% if j == 0 %}
+  <div class="col-md-1 col-xs-1">
+ <h1></h1>
+</div>
+	{% else %}
+ <div class="col-md-1 col-xs-1">
+ {% if j in event_12 %}
+	{% if day < j %}
+	<button class="btn btn-primary"><h1>{{j}}</h1></button>
+	{% else %}
+	<button class="btn btn-success"><h1>{{j}}</h1></button>
+	{% endif %}
+ {% else %}
+ 
+ <button class="btn btn-default"><h1> {{j}}</h1></button>
+ {% endif %}
+</div>
+	{% endif %}
+ {% endfor %}
+<div class="col-md-2 col-xs-2">
+</div>
+ {% endfor %}
+ <p> {{event_12}}</p>
+</div>
+</div>
+
+
+{% endblock %}
+
