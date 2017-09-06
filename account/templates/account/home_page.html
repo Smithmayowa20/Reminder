@@ -1,6 +1,62 @@
 {% extends 'account/base.html' %}
 {% block content %}
 <ul class="nav nav-tabs">
+<div class="text-center">
+<div type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> ADD AN EVENT <span class="glyphicon glyphicon-plus"></span></div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add An Event</h4>
+      </div>
+      <div class="modal-body">
+		<form class="form-horizontal" method="post">{% csrf_token %}
+    <fieldset>
+        <legend>{{ title }}</legend>
+        {% for field in form %}
+            {% if field.errors %}
+                <div class="control-group error">
+                    <label class="control-label">{{ field.label }}</label> 
+                    <div class="controls">{{ field }}
+                        <span class="help-inline">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>
+                    </div>
+                </div>
+            {% else %}
+                <div class="control-group">
+                    <label class="control-label">{{ field.label }}</label> 
+                    <div class="controls">{{ field }}
+                        {% if field.help_text %}
+                            <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
 <div class="col-md-1 col-xs-1"></div>
 {% if year == standard_year and month == 1 %}
     <li class="active"><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
@@ -85,159 +141,257 @@
 {% else %}
 <div id="home" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> JANUARY </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>JANUARY</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_1 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_1 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_1 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_1 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_1}}</p>
-</div>
-</div>
+
+
 
 {% if year == standard_year and month == 2 %}
 <div id="menu1" class="tab-pane fade in active">
 {% else %}
 <div id="menu1" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> FEBUARY </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>FEBUARY</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_2 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_2 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_2 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_2 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_2}}</p>
-</div>
-</div>
+
+
 
 {% if year == standard_year and month == 3 %}
 <div id="menu2" class="tab-pane fade in active">
 {% else %}
 <div id="menu2" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> MARCH </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>MARCH</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_3 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_3 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_3 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_3 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_3}}</p>
-</div>
-</div>
+
+
 
 {% if year == standard_year and month == 4 %}
 <div id="menu3" class="tab-pane fade in active">
 {% else %}
 <div id="menu3" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> APRIL </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>APRIL</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_4 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_4 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_4 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_4}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_4 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 
@@ -247,41 +401,63 @@
 {% else %}
 <div id="menu4" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> MAY </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>MAY</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_5 %}
- <div class="col-md-3 col-xs-3">
-</div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
-</div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_5 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_5}}</p>
-</div>
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_5 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
 
+
+<div class="col-md-3">
+</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_5 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
+</div>
 
 
 {% if year == standard_year and month == 6 %}
@@ -289,40 +465,64 @@
 {% else %}
 <div id="menu5" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> JUNE </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>JUNE</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_6 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_6 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_6 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_6 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_6}}</p>
-</div>
-</div>
+
 
 
 
@@ -331,39 +531,66 @@
 {% else %}
 <div id="menu6" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> JULY </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>JULY</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_7 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_7 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_7 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_7}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+{% if event_list_7 %}
+ {% for i in event_list_7 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+{% else %}
+	<p>You have no events data for this month</p>
+{% endif %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 
@@ -373,39 +600,62 @@
 {% else %}
 <div id="menu7" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> AUGUST </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>AUGUST</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_8 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_8 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_8 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_8}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_8 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 {% if year == standard_year and month == 9 %}
@@ -413,52 +663,64 @@
 {% else %}
 <div id="menu8" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> SEPTEMBER </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>SEPTEMBER</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_9 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_9 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_9 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- 
- <div class="col-md-12 col-xs-12 text-center">
- <br>
- <br>
- <br>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
  {% for i in event_list_9 %}
  <p>TITLE :{{i.title}}</p>
  <p>DESCRIPTION :{{i.description}}</p>
  <p>EVENT DATE :{{i.event_date}}</p>
  <br>
   {% endfor %}
- </div>
  <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
-</div>
+
 
 
 
@@ -467,39 +729,62 @@
 {% else %}
 <div id="menu9" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> SEPTEMBER </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>OCTOBER</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_10 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_10 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_10 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_10}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_10 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 
@@ -509,39 +794,62 @@
 {% else %}
 <div id="menu10" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> SEPTEMBER </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>NOVEMBER</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_11 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_11 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_11 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_11}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_11 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 
@@ -551,39 +859,62 @@
 {% else %}
 <div id="menu11" class="tab-pane fade ">
 {% endif %}
-<div class="container">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <div class="text-center">
-<h1> {{year}} </h1><hr>
-<h1> SEPTEMBER </h1>
-</div>
+<p></p>
+  <h2>{{year}}</h2>
+  <h3>DECEMBER</h3>
+  </div>
+<br>
+  <div class="">
+
+  <table class="table table-responsive table-bordered">
   {% for i in month_12 %}
- <div class="col-md-3 col-xs-3">
+    <tbody>
+      <tr>
+	  {% for j in i %}
+			{% if j == 0 %}
+        <td></td>
+			{% else %}
+
+		{% if j in event_12 %}
+				{% if day > j %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% else %}
+					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
+				{% endif %}
+		{% else %}
+			<td><h5>{{j}}</h5></td>
+		{% endif %}
+
+			{% endif %}
+	 {% endfor %}
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+  </div>
 </div>
-  {% for j in i %}
-  {% if j == 0 %}
-  <div class="col-md-1 col-xs-1">
- <h1></h1>
+
+
+<div class="col-md-3">
 </div>
-	{% else %}
- <div class="col-md-1 col-xs-1">
- {% if j in event_12 %}
-	{% if day < j %}
-	<button class="btn btn-primary"><h1>{{j}}</h1></button>
-	{% else %}
-	<button class="btn btn-success"><h1>{{j}}</h1></button>
-	{% endif %}
- {% else %}
- 
- <button class="btn btn-default"><h1> {{j}}</h1></button>
- {% endif %}
-</div>
-	{% endif %}
- {% endfor %}
-<div class="col-md-2 col-xs-2">
-</div>
- {% endfor %}
- <p> {{event_12}}</p>
-</div>
+<div class="col-md-12 col-xs-12 text-center">
+<br>
+<br>
+<br>
+<br><br>
+<br>
+ {% for i in event_list_12 %}
+ <p>TITLE :{{i.title}}</p>
+ <p>DESCRIPTION :{{i.description}}</p>
+ <p>EVENT DATE :{{i.event_date}}</p>
+ <br>
+  {% endfor %}
+ <div class="text-right">{{i.updated_date}}</div>
+ </div>
 </div>
 
 

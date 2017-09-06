@@ -24,6 +24,7 @@ class Event_reminder(models.Model):
 		
 	def create_event(self):
 		self.save()
+		self.updated_date = timezone.now()
 		
 	def get_month_day_year(self):
 		datetime = str(self.event_date)

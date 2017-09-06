@@ -14,7 +14,11 @@
 
 
               <!--<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">-->
-
+	<style>
+	.glyphicon.glyphicon-menu-right {
+    font-size: 75px;
+}
+	</style>
     </head>
 	
 <body>	
@@ -46,10 +50,13 @@
 {% block content %}
 {% endblock content %}
 </div>
+<div class="col-md-12 col-xs-12">
+<hr>
 <footer class="text-center">
 <br><br>
   <p>All Rights Reserved <a href="{% url 'home_page' %}"><strong>SmithMayowa</strong></a></p> 
 </footer>
+</div>
 </body>
 
 </html>

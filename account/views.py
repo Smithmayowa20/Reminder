@@ -10,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from .forms import Event_reminderForm
+from django.utils import timezone
 import calendar
 import datetime
 '''
@@ -85,8 +86,21 @@ def home_page(request,year=datetime.datetime.now().year):
 	context["day"] = date_day
 	context["month"] = date_month
 	context["standard_year"] = date_year
-	 
-	return(render(request,'account/home_page.html',context))
+	form_class = Event_reminderForm
+	if request.method == 'POST':
+        # grab the data from the submitted form and
+        # apply to the form
+		form = form_class(request.POST, request.FILES)
+		if form.is_valid():
+			thing = form.save(commit=False)
+			thing.user = request.user
+			thing.create_event()
+			return redirect('home_page')
+	else:
+		form = form_class()
+		context['form'] = form
+		return(render(request,'account/home_page.html',context))
+	
 	
 def landing_page(request):
 	return (render(request,'account/landing_page.html'))
