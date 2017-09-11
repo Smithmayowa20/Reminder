@@ -26,7 +26,7 @@ SECRET_KEY = 'r&8yo@i1ht3kds8z=uftt$1nh#b7649&wd+m60w@uvc!0ww_ut'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['reminder11.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -145,7 +145,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 LOGIN_REDIRECT_URL = "home_page"
 LOGOUT_REDIRECT_URL = "landing_page"
-SEND_ACTIVATION_EMAIL = True
+'''SEND_ACTIVATION_EMAIL = True
 REGISTRATION_AUTO_LOGIN = False
 REGISTRATION_EMAIL_REGISTER_SUCESS_URL = "landing_page"
-REGISTRATION_EMAIL_ACTIVATE_SUCESS_URL = "landing_page"
+REGISTRATION_EMAIL_ACTIVATE_SUCESS_URL = "landing_page"'''
