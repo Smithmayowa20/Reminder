@@ -4,7 +4,39 @@
 <div class="text-center">
 
 <div type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> ADD AN EVENT <span class="glyphicon glyphicon-plus"></span></div>
+<div> 
 
+	<form class="form-horizontal" method="post">{% csrf_token %}
+    <fieldset>
+        <legend>{{ title }}</legend>
+        {% for field in form1 %}
+            {% if field.errors %}
+                <div class="control-group error">
+                    <label class="control-label">{{ field.label }}</label> 
+                    <div class="controls">{{ field }}
+                        <span class="help-inline">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>
+                    </div>
+                </div>
+            {% else %}
+                <div class="control-group">
+                    <label class="control-label">{{ field.label }}</label> 
+                    <div class="controls">{{ field }}
+                        {% if field.help_text %}
+                            <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+</form>
+
+</div>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -61,6 +93,8 @@
 <div class="col-md-1 col-xs-1"></div>
 {% if year == standard_year and month == 1 %}
     <li class="active"><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
+{% elif year > standard_year %}
+	<li class="active"><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
 {% else %}
 	<li><a data-toggle="tab" href="#home"><h3>January</h3></a></li>
 {% endif %}
@@ -127,6 +161,8 @@
 
 {% if year == standard_year and month == 12 %}
     <li class="active"><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
+{% elif year < standard_year  %}
+	<li class="active"><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
 {% else %}
 	<li><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
 {% endif %}
@@ -137,6 +173,8 @@
  
 
 {% if year == standard_year and month == 1 %}
+<div id="home" class="tab-pane fade in active">
+{% elif year > standard_year %}
 <div id="home" class="tab-pane fade in active">
 {% else %}
 <div id="home" class="tab-pane fade ">
@@ -921,6 +959,8 @@
 
 
 {% if year == standard_year and month == 12 %}
+<div id="menu11" class="tab-pane fade in active">
+{% elif year < standard_year %}
 <div id="menu11" class="tab-pane fade in active">
 {% else %}
 <div id="menu11" class="tab-pane fade ">

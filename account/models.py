@@ -34,3 +34,10 @@ class Event_reminder(models.Model):
 		day = int(year_month_day[2])
 		return (day)
 		
+class Year(models.Model):
+	year = models.PositiveIntegerField(
+		blank=True,null=True)
+		
+	def str(self):
+		return self.year
+	
