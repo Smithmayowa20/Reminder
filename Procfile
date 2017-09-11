@@ -1,2 +1,2 @@
-web: gunicorn heroku_testing.wsgi --log-file -
+web: gunicorn reminder.wsgi --log-file -
 
