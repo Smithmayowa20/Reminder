@@ -1,6 +1,12 @@
 {% extends 'account/base.html' %}
 {% block title %}
     Registration Complete - {{ block.super }}
+	<a href="{% url 'auth_login' %}">
+					<span class="btn btn-default">
+						<span class="glyphicon glyphicon-log-in"></span>
+						LOGIN
+					</span>
+				</a>
 {% endblock title %}
 
 {% block content %}
