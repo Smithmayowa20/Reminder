@@ -1,4 +1,46 @@
 {% extends 'account/base.html' %}
 {% block content %}
-
+<div class="container">
+<div class="bg-faded p-4 my-4">
+			<div>
+			<h1 class="text-center text-lg text-uppercase my-0">
+				<strong>
+				REMINDER
+				<br>
+				<br>
+				THE WORLDS FOREMOST REMINDER WEB APP
+				</strong>
+			</h1>
+			</div>
+            <hr class="divider">
+			<br>
+			<br>
+            <h2 class="text-center text-lg text-uppercase my-0">
+				<strong>
+				<a href="{% url 'auth_login' %}">
+					<span class="btn btn-default">
+						<span class="glyphicon glyphicon-log-in"></span>
+						LOGIN
+					</span>
+				</a>
+				</strong>
+			</h2>
+			<hr class="divider">
+			<h2 class="text-center text-lg text-uppercase my-0"><strong>OR</strong></h2>
+			<hr class="divider">
+			<h2 class="text-center text-lg text-uppercase my-0">
+				<strong>
+				<a href="{% url 'registration_register' %}">
+					<span class="btn btn-default">
+						<span class="glyphicon glyphicon-user"></span> 
+						SIGNUP 
+					</span>
+				</a>
+				</strong>
+			</h2>
+			<br>
+			<br>
+			<hr class="divider">
+			</div>
+</div>
 {% endblock content %}

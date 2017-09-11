@@ -2,6 +2,7 @@
 {% block content %}
 <ul class="nav nav-tabs">
 <div class="text-center">
+
 <div type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> ADD AN EVENT <span class="glyphicon glyphicon-plus"></span></div>
 
 
@@ -54,7 +55,7 @@
   </div>
 </div>
 </div>
-
+<br>
 
 
 <div class="col-md-1 col-xs-1"></div>
@@ -130,8 +131,7 @@
 	<li><a data-toggle="tab" href="#menu11"><h3>December </h3></a></li>
 {% endif %}
 
-  </ul>
-
+  </ul> 
   <div class="tab-content">
     
  
@@ -162,7 +162,13 @@
 			{% else %}
 
 		{% if j in event_1 %}
-				{% if day > j %}
+				{% if j > day and 1 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 1 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 1 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 1 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -227,7 +233,13 @@
 			{% else %}
 
 		{% if j in event_2 %}
-				{% if day > j %}
+				{% if j > day and 2 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 2 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 2 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 2 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -292,7 +304,13 @@
 			{% else %}
 
 		{% if j in event_3 %}
-				{% if day > j %}
+				{% if j > day and 3 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 3 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 3 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 3 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -357,7 +375,13 @@
 			{% else %}
 
 		{% if j in event_4 %}
-				{% if day > j %}
+				{% if j > day and 4 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 4 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 4 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 4 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -422,7 +446,13 @@
 			{% else %}
 
 		{% if j in event_5 %}
-				{% if day > j %}
+				{% if j > day and 5 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 5 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 5 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 5 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -486,7 +516,13 @@
 			{% else %}
 
 		{% if j in event_6 %}
-				{% if day > j %}
+				{% if j > day and 6 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 6 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 6 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 6 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -552,7 +588,13 @@
 			{% else %}
 
 		{% if j in event_7 %}
-				{% if day > j %}
+				{% if j > day and 7 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 7 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 7 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 7 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -621,7 +663,13 @@
 			{% else %}
 
 		{% if j in event_8 %}
-				{% if day > j %}
+				{% if j > day and 8 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 8 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 8 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 8 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -684,7 +732,13 @@
 			{% else %}
 
 		{% if j in event_9 %}
-				{% if day > j %}
+				{% if j > day and 9 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 9 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 9 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 9 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -750,7 +804,13 @@
 			{% else %}
 
 		{% if j in event_10 %}
-				{% if day > j %}
+				{% if j > day and 10 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 10 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 10 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 10 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -815,7 +875,13 @@
 			{% else %}
 
 		{% if j in event_11 %}
-				{% if day > j %}
+				{% if j > day and 11 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 11 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 11 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 11 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>
@@ -880,7 +946,13 @@
 			{% else %}
 
 		{% if j in event_12 %}
-				{% if day > j %}
+				{% if j > day and 12 < month and  year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j > day and 12 >= month and year < standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 12 <= month and year <= standard_year %}
+					<td style="background-color:green"><h5>{{j}}</h5></button></td>
+				{% elif j < day and 12 > month and year < standard_year %}
 					<td style="background-color:green"><h5>{{j}}</h5></button></td>
 				{% else %}
 					<td style="background-color:blue"><h5>{{j}}</h5></button></td>

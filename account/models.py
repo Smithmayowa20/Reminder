@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class Event_reminder(models.Model):
-	event_date = models.DateField(
+	event_date = models.DateField(help_text="month/day/year",
 		blank=True,null=True)
 	title = models.CharField(max_length = 32,
 		blank=True,null=True)
