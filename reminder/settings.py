@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-r18yo1i1ht3kds8z1uftt11nh1b7649&wd+m60w@uvc10ww1ut
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'r18yo1i1ht3kds8z1uftt11nh1b76491wd1m60w1uvc10ww1ut'
 
