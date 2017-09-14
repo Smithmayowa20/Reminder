@@ -111,4 +111,6 @@ def home_page(request,year=datetime.datetime.now().year):
 	
 	
 def landing_page(request):
+	if request.user.is_authenticated:
+		return redirect('home_page')
 	return (render(request,'account/landing_page.html'))
